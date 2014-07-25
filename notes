@@ -1,0 +1,21 @@
+
+data BookInfo = Book Int String [String]
+  deriving (Show)
+
+BookInfo  == type constructor
+Book      == value/data constructor
+
+- type constructors are only used in type declarations and type signatures
+- value/data constructors are used in code to create values of the type
+- type constructors and value constructors can share the same name
+
+type CustomerID = Int == type synonym
+type BookRecord = (BookInfo, BookReview) == type synonym for the tuple (BookInfo, BookReview)
+
+- Bool is an algebraic data type - can have more than one value constructor
+
+- algebraic datatypes allow us to distinguish between otherwise identical pieces of information - no way of confusing a whale with a chair
+
+- Maybe is a polymorphic/generic type
+
+- isomorphic types have similar shapes
