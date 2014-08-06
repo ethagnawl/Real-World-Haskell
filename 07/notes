@@ -1,0 +1,37 @@
+- () - empty tuple - is a unit, similar to void in Java
+
+- stored IO actions can only be executed within IO actions
+
+- actions:
+  - have type IO t
+  - are first-class values
+  - produce an effect when performed, but not when eval'd - only produce effect when called by something else in an IO context
+  - any expr may produce an IO but it won't be performed until executed in another IO context
+  - performing an action of type IO t may perform IO and will deliver a result of type t
+
+- when used in a do block, let doesn't need trailing `in`
+
+- return is haskell is the opposite of <-, takes a pure value and wraps it in an IO
+- if your result came from a pure computation, you must use return to wrap it in IO
+- return 7 would create an action stored in a value of type IO Int
+- <- reverses the effect of return: one <- return 1
+
+- IO changes the state of the world
+
+- actions resemble functions
+- actions do nothing when defined
+- actions perform some task when invoked
+- monads are a way of chaining functions together (purely)
+- the result type of an action is tagged with IO
+
+- every statement, except let, in a do block must yield an IO action that'll be executed
+
+- functions that end with _ (mapM_) discard their result
+
+- mapM can execute actions, map cannot
+
+- >> and >>= can be used in place of do blocks to join actions
+- >> sequences two actions - the result of the first action is discarded
+- >>= runs an action and passes its result to a function that returns an action. the second action is run and returns the result of the expression
+- getLine >>= putStrLn
+
