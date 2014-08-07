@@ -1,0 +1,9 @@
+- forM -> mapM with its arguments flipped
+- mapM :: (Monad m) => (a -> m b) -> [a] -> m [b]
+- for:: (Monad m) => [a] -> (a -> m b) -> m [b]
+
+- filterM -> evaluates pred in IO monad
+
+- combinators: functions that take other functions and return new functions
+
+- avoid pipelines longer than 3-4 elements
